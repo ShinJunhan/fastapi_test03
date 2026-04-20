@@ -31,6 +31,7 @@
                     <th>제목</th>
                     <th>내용</th>
                     <th>작성일</th>
+                    <th>삭제</th> <!-- 헤더 추가 -->
                 </tr>
             </thead>
             <tbody>
@@ -43,6 +44,11 @@
                     <td>{{ post.title }}</td>
                     <td>{{ post.content }}</td>
                     <td>{{ post.created_at }}</td>
+                    <td>
+                        <!-- 삭제 링크 추가 -->
+                        <a href="/post/delete/{{ post.num }}" 
+                           onclick="return confirm('정말 삭제하시겠습니까?')">삭제</a>
+                    </td>
                 </tr>
                 {% endfor %} {# 반복문의 끝을 알립니다 #}
             </tbody>
