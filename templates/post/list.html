@@ -31,6 +31,7 @@
                     <th>제목</th>
                     <th>내용</th>
                     <th>작성일</th>
+                    <th>수정</th>
                     <th>삭제</th> <!-- 헤더 추가 -->
                 </tr>
             </thead>
@@ -44,6 +45,9 @@
                     <td>{{ post.title }}</td>
                     <td>{{ post.content }}</td>
                     <td>{{ post.created_at }}</td>
+                    <td>
+                        <a href="/post/edit/{{ post.num }}">수정</a>
+                    </td>
                     <td>
                         <!-- 삭제 링크 추가 -->
                         <a href="/post/delete/{{ post.num }}" 

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>templates/post/edit.html</title>
+</head>
+<body>
+    <div class="container">
+        <h3>글 수정 양식</h3>
+        <form action="/post/edit/{{ post.num }}" method="post">
+            <label>
+                작성자 <input type="text" name="writer" value="{{post.writer}}" readonly>
+            </label>
+            <br>
+            <label>
+                제목 <input type="text" name="title" value="{{post.title}}">
+            </label>
+            <br>
+            <label>
+                내용 <br>
+                <textarea name="content">{{post.content}}</textarea>
+            </label>
+            <br>
+            <button type="submit">수정</button>
+            <button type="reset">취소</button>
+        </form>
+    </div>
+</body>
+</html>
+<!--
+
+위의 폼을 제출하면 웹브라우저는 아래와 같은 형식의 요청을 전송한다. (post 방식 요청, 한글은 인코딩해서)
+
+------------------------------------ post 방식 -------------------
+
+POST /post/edit/123 HTTP/1.1
+Host: example.com
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 58
+
+writer=hong&title=%ED%83%80%EC%9D%B4%ED%8B%80&content=%EB%B3%B8%EB%AC%B8
+
+------------------------------------ get 방식 -------------------
+
+GET /post/edit/123?writer=hong&title=%ED%83%80%EC%9D%B4%ED%8B%80&content=%EB%B3%B8%EB%AC%B8 HTTP/1.1
+Host: example.com
+User-Agent: (브라우저 UA)
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+
+-->
