@@ -19,7 +19,7 @@
             <br>
             <label>
                 내용 <br>
-                <textarea name="content">{{ post.content }}</textarea>
+                <textarea name="content">{{post.content}}</textarea>
             </label>
             <br>
             <button type="submit">수정</button>
@@ -28,3 +28,24 @@
     </div>
 </body>
 </html>
+<!--
+
+위의 폼을 제출하면 웹브라우저는 아래와 같은 형식의 요청을 전송한다. (post 방식 요청, 한글은 인코딩해서)
+
+------------------------------------ post 방식 -------------------
+
+POST /post/edit/123 HTTP/1.1
+Host: example.com
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 58
+
+writer=hong&title=%ED%83%80%EC%9D%B4%ED%8B%80&content=%EB%B3%B8%EB%AC%B8
+
+------------------------------------ get 방식 -------------------
+
+GET /post/edit/123?writer=hong&title=%ED%83%80%EC%9D%B4%ED%8B%80&content=%EB%B3%B8%EB%AC%B8 HTTP/1.1
+Host: example.com
+User-Agent: (브라우저 UA)
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+
+-->
